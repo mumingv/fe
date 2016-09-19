@@ -1,20 +1,17 @@
-// Create variables to hold the title and note text.
-var title; 
+// 创建变量
+var title;
 var message;
 
-// Assign values to these variables.
-title = "Molly's Special Offers";
-message = '<a href=\"sale.html\">25% off!</a>';
+// 变量赋值
+title = "Jay's Special Offers";
+message = '<a href="sale.html">25% off!</a>';  // 这里字符串中的双引号加不加转义字符都是可以的
 
-// Get the element with an id of title.
+// 根据id获取元素对象
 var elTitle = document.getElementById('title');
-// Replace the content of this element.
 elTitle.textContent = title;
 
-// Get the element with an id of note.
 var elNote = document.getElementById('note');
-// Replace the content of this element.
-elNote.innerHTML = message;
+elNote.innerHTML = message;  // 这里必须要使用innerHTML，因为message里是HTML，而不仅仅是文本
 
 /* 
 NOTE: textContent does not work in IE8 or earlier
