@@ -1,0 +1,27 @@
+/* CSS for Index Page */
+
+body {
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    color: #58595B;
+    background: #f7f7f7;  /* background的第一个参数是颜色 */
+    margin: 0px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+table {
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 3px;
+    text-align: left;
+}
