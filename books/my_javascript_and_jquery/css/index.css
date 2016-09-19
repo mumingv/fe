@@ -13,6 +13,15 @@ h1 {
     text-transform: uppercase;
 }
 
+a {
+    color: #00ab95;
+    text-decoration: none;  /* 去除a元素默认的下划线 */
+}
+
+a:hover {
+    color: #ed6c7b;
+}
+
 table {
     padding: 0px;
     margin-left: auto;
