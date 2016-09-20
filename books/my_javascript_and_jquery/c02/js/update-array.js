@@ -1,12 +1,11 @@
-// Create the array and assign it values
+// 创建数组
 var colors = ['white', 'black', 'custom'];
 
-// Update the third item in the array
+// 修改数组中的值
 colors[2] = 'beige';
 
-// Get the element with an id of colors
+// 修改元素的内容
 var el = document.getElementById('colors');
-// Replace element with third item from the array
 el.textContent = colors[2];
 
 /* 

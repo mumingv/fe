@@ -1,8 +1,8 @@
-// Create an array and assign it values.
-var colors; 
+// 创建数组
+var colors;
 colors = ['white', 'black', 'custom'];
 
-// Show the first item from the array.
+// 访问数组元素
 var el = document.getElementById('colors');
 el.textContent = colors[0];
 
