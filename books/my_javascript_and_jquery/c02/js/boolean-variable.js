@@ -1,8 +1,8 @@
 // 创建变量
 var inStock;
 var shipping;
-inStock = true;
-shipping = false;
+inStock = true;  // true必须使用全部小写的形式
+shipping = false;  // false必须使用全部小写的形式
 
 // 根据id获取元素对象
 var elStock = document.getElementById('stock');
