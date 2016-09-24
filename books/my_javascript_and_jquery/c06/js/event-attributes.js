@@ -1,3 +1,5 @@
+// HTML事件处理程序
+
 function checkUsername() {
     var elMsg = document.getElementById('feedback');
     var elUsername = document.getElementById('username');
