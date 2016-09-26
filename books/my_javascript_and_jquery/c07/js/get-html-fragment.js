@@ -1,4 +1,4 @@
-// 获取元素内容
+// 获取元素内容: html()
 
 $(function() {
     var $listHTML = $('ul').html();
