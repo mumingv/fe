@@ -8,7 +8,7 @@ function charCount(e) {
     charDisplay = document.getElementById('charactersLeft');
     counter = (180 - (textEntered.length));
     charDisplay.textContent = counter;
-    lastkey = document.getElementById('lastkey');
+    lastkey = document.getElementById('lastKey');
     lastkey.textContent = 'Last key in ASCII code: ' + e.keyCode;
 }
 
