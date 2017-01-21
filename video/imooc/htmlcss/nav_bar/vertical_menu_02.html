@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>玩转Bootstrap(基础)</title>
+    <title>垂直菜单: 在a标签上设置样式</title>
 
     <!-- Bootstrap -->
+    <!-- mumingv
     <link href="../../../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,28 +18,57 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+      }
+      ul {
+        list-style: none;
+        width: 100px;
+      }
+      li {
+      }
+      a {
+        display: block;
+        text-decoration: none;
+        height: 30px;  /* 元素的高度(不包含padding、border、margin */
+        line-height: 30px;  /* 行高line-height = 文字本身的高度font-size + 行距 */
+        width: 100px;  /* 元素的宽度(不包含padding、border、margin */
+        background-color: #ccc;
+        margin-bottom: 1px;
+        /*padding-left: 10px;*/  /* padding会增加li的总宽度，这使用的话li的显示总宽度会变为110px */
+        text-indent: 10px;
+      }
+      a:hover {
+        color: #fff;
+        background-color: #f60;
+      }
+
+    </style>
+
   </head>
   <body>
-    <div class="jumbotron">
-    <h2>第1章 Bootstrap简介</h1>
-        <ul>
-            <li><a href="ch01/02_index.html">01.Bootstrap示例</a></li>
-            <li><a href="ch01/03_basic_template.html">03.基本模板</a></li>
-            <li><a href="ch01/05_reset_css.html">05.全局样式 (超大屏幕类名：jumbotron)</a></li>
-        </ul>
-    </div>
-    <h2>第2章 排版</h1>
-        <ul>
-            <li><a href="ch02/01_header.html">01.标题 (对应使用6个类名: h1..h6)</a></li>
-        </ul>
-    </div>
+    <ul>
+        <li><a href="#">首    页</a></li>
+        <li><a href="#">新闻快讯</a></li>
+        <li><a href="#">产品展示</a></li>
+        <li><a href="#">售后服务</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     -->
+    <!-- mumingv
     <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- mumingv
     <script src="../../../../bootstrap/js/bootstrap.min.js"></script>
+    -->
   </body>
 </html>
