@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>伸缩菜单: 水平方向: 使用Javascript实现动画效果</title>
+
+<!-- Bootstrap -->
+<!-- mumingv
+<link href="../../../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+-->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+ul {
+  list-style: none;
+  height: 50px;
+  border-bottom: 5px solid #f60;/* 菜单下面的黄线使用border属性制作 */
+  padding-left: 30px;/* 菜单左侧空白使用padding属性制作 */
+}
+li {
+  float: left;/* 浮动属性将垂直菜单改为水平菜单。浮动是基于父元素的空间内进行浮动的，所以需要父元素的空间足够大才行 */
+  margin-top: 20px;
+}
+a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  height: 30px;/* 元素的高度(不包含padding、border、margin */
+  line-height: 30px;/* 行高line-height = 文字本身的高度font-size + 行距 */
+  width: 120px;  /* 元素的宽度(不包含padding、border、margin */
+  background-color: #ccc;
+  /*margin-bottom: 1px;*/
+  /*background: url(images/btnBg.png);*/
+}
+a.on,
+a:hover {
+  color: #fff;
+  background-color: #f60;  /* 橙色 */
+  /*background-position: 0 -30px;*/
+}
+</style>
+
+<script>
+window.onload = function() {
+  var aA = document.getElementsByTagName("a");
+  for (var i = 0; i < aA.length; i++) {
+    aA[i].onmouseover = function() {
+      var This = this;
+      clearInterval(This.time);
+      This.time = setInterval(function(){
+        This.style.width = This.offsetWidth + 8 + "px";
+        if (This.offsetWidth >= 160) {
+          clearInterval(This.time);
+        }
+      }, 30);
+    }
+    aA[i].onmouseout = function() {
+      var This = this;
+      clearInterval(This.time);
+      This.time = setInterval(function(){
+        This.style.width = This.offsetWidth - 8 + "px";
+        if (This.offsetWidth <= 120) {
+          This.style.width = "120px";
+          clearInterval(This.time);
+        }
+      }, 30);
+    }
+  }
+}
+</script>
+</head>
+<body>
+<ul>
+  <li><a class="on" href="#">首    页</a></li>
+  <li><a href="#">新闻快讯</a></li>
+  <li><a href="#">产品展示</a></li>
+  <li><a href="#">售后服务</a></li>
+  <li><a href="#">联系我们</a></li>
+</ul>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+-->
+<!-- mumingv
+<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- mumingv
+<script src="../../../../bootstrap/js/bootstrap.min.js"></script>
+-->
+</body>
+</html>
