@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>搜索框页面</title>
 	<style type="text/css">
+        /* 搜索框 */ 
 		* {
 			margin: 0;
 			padding: 0;
@@ -61,9 +62,20 @@
 			text-decoration: underline;
 			background-color: #eee;
 		}
+
+        /* 词云 */
+		div.word-cloud-box {
+            width: 600px;
+            height: 400px;
+			position: absolute;
+			top: 250px;
+			left: 200px;
+		}
+        
 	</style>
 </head>
 <body>
+    <!-- 搜索框 -->
 	<div class="search-box">
 		<div class="search-logo"></div>
 		<form class="search-form" action="http://cn.bing.com/search?q=" target="_blank">
@@ -103,5 +115,75 @@
         location.href = "https://www.baidu.com/s?wd=" + keyword; 
     });
 	</script>
+
+    <!-- 词云 -->
+    <div id="main" class="word-cloud-box"></div>
+    <script src="http://cdn.bootcss.com/echarts/2.2.7/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        function createRandomItemStyle() {
+            return {
+                normal: {
+                    color: 'rgb(' + [
+                        Math.round(Math.random() * 160),
+                        Math.round(Math.random() * 160),
+                        Math.round(Math.random() * 160)
+                    ].join(',') + ')'
+                }
+            };
+        }
+
+        // 指定图表的配置项和数据
+        option = {
+            title: {
+                text: '小米是雷军的公司',
+                link: ''
+            },
+            tooltip: {
+                show: true  // 鼠标放置到word上会提示具体数据
+            },
+            series: [{
+                name: '',
+                type: 'wordCloud',
+                size: ['80%', '80%'],
+                textRotation : [0, 45, 90, -45],
+                textPadding: 0,
+                autoSize: {
+                    enable: true,
+                    minSize: 14
+                },
+                data: [
+                    {
+                        name: "科技",
+                        value: 91.7,
+                        itemStyle: {
+                            normal: {
+                                color: 'black'
+                            }
+                        }
+                    },
+                    {
+                        name: "名人",
+                        value: 80.1,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "手机",
+                        value: 78.6,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "智能",
+                        value: 65.3,
+                        itemStyle: createRandomItemStyle()
+                    }
+                ]
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
 </body>
 </html>
