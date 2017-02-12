@@ -82,13 +82,23 @@
 	<script>
 	$(".search-text").bind("keyup", function(){
 		var searchText = $(this).val();
-		alert(searchText);
-		$(".suggest").show().css({
-			top: $(".search-form").offset().top + $(".search-form").height()+7,
-			left: $(".search-form").offset().left,
-			position: "absolute"
-		});
+        $.get("/video/imooc/js/search_box/index.php?q=" + searchText, function(data) {
+            var html = "";
+            for (var i = 0; i < data.length; i++) {
+                html += "<li>"+data[i]+"</li>";
+            }
+            $(".suggest>ul").html(html);
+            //console.log(html);
+		    $(".suggest").show().css({
+			    position: "absolute",
+			    top: $(".search-form").offset().top + $(".search-form").height()+7,
+			    left: $(".search-form").offset().left
+		    });
+        }, "json");
 	});
+    $(document).bind("click", function() {
+        $(".suggest").hide(); 
+    });
 	</script>
 </body>
 </html>
