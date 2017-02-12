@@ -88,10 +88,9 @@
                 htmlText += "<li>"+data[i]+"</li>";
             }
             $(".suggest>ul").html(htmlText);
-            //console.log(htmlText);
 		    $(".suggest").show().css({
 			    position: "absolute",
-			    top: $(".search-form").offset().top + $(".search-form").height()+7,
+			    top: $(".search-form").offset().top + $(".search-form").height() + 7,
 			    left: $(".search-form").offset().left
 		    });
         }, "json");
