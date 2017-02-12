@@ -44,15 +44,51 @@
 			background-image: url("image/bf-search-button.png");
 			float: left;
 		}
+		div.suggest {
+			width: 385px;
+			background-color: #fff;
+			border: 1px solid #999;
+		}
+		div.suggest ul {
+			list-style: none;
+		}
+		div.suggest ul li {
+			padding: 3px;
+			line-height: 25px;
+			cursor: pointer;
+		}
+		div.suggest ul li:hover {
+			text-decoration: underline;
+			background-color: #eee;
+		}
 	</style>
 </head>
 <body>
 	<div class="search-box">
 		<div class="search-logo"></div>
 		<form class="search-form" action="http://cn.bing.com/search?q=" target="_blank">
-			<input type="text" class="search-text" name="q" />
+			<input type="text" class="search-text" name="q" autocomplete="off" />
 			<input type="submit" class="search-button" value="" />
 		</form>
 	</div>
+	<div class="suggest" id="search-suggest" style="display:none;">
+		<ul>
+			<li>苹果</li>
+			<li>香蕉</li>
+			<li>橘子</li>
+		</ul>
+	</div>
+	<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	$(".search-text").bind("keyup", function(){
+		var searchText = $(this).val();
+		alert(searchText);
+		$(".suggest").show().css({
+			top: $(".search-form").offset().top + $(".search-form").height()+7,
+			left: $(".search-form").offset().left,
+			position: "absolute"
+		});
+	});
+	</script>
 </body>
 </html>
