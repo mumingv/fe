@@ -1,0 +1,26 @@
+nav {
+    background-color: #efe5d0;
+	margin: 10px 10px 0px 10px;
+}
+nav ul {
+	margin: 0px;
+	list-style-type: none;  /* 去除列表默认样式 */
+	padding: 5px 0px 5px 0px;
+}
+nav ul li {
+	display: inline;  /* 将li设置为内联元素，使其显示为一行 */
+	padding: 5px 10px 5px 10px;
+}
+nav ul li a:link, nav ul li a:visited {
+	color: #954b4b;
+	border-bottom: none;  /* 去除链接的默认下划线样式 */
+	font-weight: bold;
+
+/*
+	text-shadow: 1px 1px 3px #e2c2c2; 
+	text-transform: uppercase;
+*/
+}
+nav ul li.selected {
+	background-color: #c8b99c;
+}
