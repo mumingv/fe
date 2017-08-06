@@ -3,7 +3,12 @@ import Vue from 'vue'
 
 // 子子组件对象
 var myHeaderChild = {
-	template: '<p>i am my header child</p>'
+	template: '<p>i am my header child. {{ name }} </p>',
+	data: function() {
+		return {
+			name: 'Henry'
+		}
+	}
 }
 
 // 子组件对象
