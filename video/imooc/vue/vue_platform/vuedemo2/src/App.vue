@@ -1,24 +1,34 @@
 <template>
   <div>
-    <componentA v-for="(value, key) in objList" key="key "></componentA>
+    <ul>
+      <li v-for="(item, index) in list">{{ item.name }} - {{ item.price }}</li>
+    </ul>
+    <input type="text" name="" v-model="myVal">
+    {{ myVal }}
   </div>
 </template>
 
 <script>
-import componentA from './components/a'
+import Vue from 'vue'
+
 export default {
-  //components: {componentA},
-  components: {
-    componentA: componentA
-  },
   data: function() {
     return {
-      objList: {
-        name: 'apple',
-        price: 34,
-        color: 'red',
-        weight: 14
-      }
+      myVal: '',
+      list: [
+        {
+          name: 'apple',
+          price: 34
+        },
+        {
+          name: 'banana',
+          price: 56
+        },
+        {
+          name: 'pear',
+          price: 37
+        }
+      ]
     }
   }
 }

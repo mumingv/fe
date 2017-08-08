@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ hello }}
+    <button @click="emitMyEvent">emit</button>
   </div>
 </template>
 
@@ -10,6 +11,11 @@ export default {
     return {
       hello: 'i am component a'
     }
+  },
+  methods: {
+  	emitMyEvent() {
+  		this.$emit('my-event', this.hello)
+  	}
   }
 }
 </script>
