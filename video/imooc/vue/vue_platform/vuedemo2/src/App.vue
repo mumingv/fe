@@ -3,8 +3,15 @@
     <ul>
       <li v-for="(item, index) in list">{{ item.name }} - {{ item.price }}</li>
     </ul>
-    <input type="text" name="" v-model="myVal">
+    <!-- <input type="text" name="" v-model="myVal"> -->
+    <!-- {{ typeof myVal }} -->
+
+    <select v-model="myVal">
+      <option v-for="item in options" v-bind:value="item.val">{{ item.name }}</option>
+    </select>
+
     {{ myVal }}
+
   </div>
 </template>
 
@@ -14,7 +21,21 @@ import Vue from 'vue'
 export default {
   data: function() {
     return {
-      myVal: '',
+      myVal: '1',
+      options: [
+        {
+          'name': 'apple',
+          'val': '0'
+        },
+        {
+          'name': 'banana',
+          'val': '1'
+        },
+        {
+          'name': 'orange',
+          'val': '2'
+        }
+      ],
       list: [
         {
           name: 'apple',
