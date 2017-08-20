@@ -5,6 +5,8 @@ import App from './App'
 import VRouter from 'vue-router'
 import Apple from './components/Apple'
 import Banana from './components/Banana'
+import RedApple from './components/RedApple'
+
 
 Vue.use(VRouter)
 
@@ -13,8 +15,14 @@ Vue.config.productionTip = false
 let router = new VRouter({
 	routes: [
 		{
-			path: '/apple/:color/detail/:type',
-			component: Apple
+			path: '/apple',
+			component: Apple,
+			children: [
+				{
+					path: 'red',
+					component: RedApple
+				}
+			]
 		},
 		{
 			path: '/banana',

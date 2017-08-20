@@ -3,6 +3,7 @@
   	<h1>I'm apple.</h1>
   	<p>{{ this.$route.params.color }}</p>
   	<button @click="getParam">get param</button>
+  	<router-view></router-view>
   </div>
 </template>
 
