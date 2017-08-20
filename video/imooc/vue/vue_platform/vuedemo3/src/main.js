@@ -3,14 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import VRouter from 'vue-router'
+import Vuex from 'vuex'
 import Apple from './components/Apple'
 import Banana from './components/Banana'
 import RedApple from './components/RedApple'
 
 
 Vue.use(VRouter)
+Vue.use(Vuex)
 
 Vue.config.productionTip = false
+
+let store = new Vuex.store({
+	
+})
 
 let router = new VRouter({
 	routes: [
