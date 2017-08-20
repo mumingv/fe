@@ -1,6 +1,6 @@
 <template>
   <div>
-  	<h1>I'm red apple.</h1>
+  	index
   </div>
 </template>
 
@@ -8,12 +8,11 @@
 export default {
   data () {
     return {
+      msg: 'abc'
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style>
 </style>

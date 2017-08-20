@@ -14,7 +14,11 @@
         </div>
       </div>
     </div>
-    <div class="app-content">content</div>
+    <div class="app-content">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
     <div class="app-foot">
       <p>© 2017 木名</p>
     </div>
