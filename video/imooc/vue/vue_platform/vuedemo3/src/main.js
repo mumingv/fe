@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 let router = new VRouter({
 	routes: [
 		{
-			path: '/apple',
+			path: '/apple/:color/detail/:type',
 			component: Apple
 		},
 		{
