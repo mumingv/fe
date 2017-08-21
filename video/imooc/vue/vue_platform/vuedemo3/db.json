@@ -1,0 +1,58 @@
+{
+  "getBoardList": [
+    {
+      "title": "开放产品",
+      "description": "开放产品是一款开放产品",
+      "saleout": false
+    },
+    {
+      "title": "品牌营销",
+      "description": "品牌营销帮助你的产品更好地找到定位",
+      "saleout": false
+    },
+    {
+      "title": "使命必达",
+      "description": "使命必达快速迭代永远保持最前端的速度",
+      "saleout": true
+    },
+    {
+      "title": "勇攀高峰",
+      "description": "帮你勇闯高峰，到达事业的顶峰",
+      "saleout": false
+    }
+  ],
+  "getNewsList": [
+    {
+      "id": 1,
+      "title": "新闻条目1新闻条目1新闻条目1新闻条目1",
+      "url": "http://starcraft.com"
+    },
+    {
+      "id": 2,
+      "title": "新闻条目2新闻条目2新闻条目2新闻条目2",
+      "url": "http://warcraft.com"
+    },
+    {
+      "id": 3,
+      "title": "新闻条3新闻条3新闻条3",
+      "url": "http://overwatch.com"
+    },
+    {
+      "id": 4,
+      "title": "新闻条4广告发布",
+      "url": "http://hearstone.com"
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    }
+  ]
+}

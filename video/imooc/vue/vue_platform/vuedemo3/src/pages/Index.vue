@@ -19,7 +19,7 @@
         <h2>最新消息</h2>
         <ul>
           <li v-for="item in newsList">
-            <a v-bind:href="item.url">{{ item.name }}</a>
+            <a v-bind:href="item.url">{{ item.title }}</a>
           </li>
         </ul>
       </div>
@@ -36,8 +36,6 @@
               <a href="" class="button">立即购买</a>
             </div>
           </div>
-          
-
         </div>
       </div>
     </div>
@@ -47,11 +45,10 @@
 <script>
 export default {
   created: function() {
-    // this.$http.get('getList')
-    this.$http.post('getList', {userId: 123})
-    .then(function(data) {
-      console.log(data)
-    }, function(err) {
+    this.$http.get('api/getNewsList')
+    .then((res) => {
+      this.newsList = res.data
+    }, (err) => {
       console.log(err)
     })
   },
@@ -87,25 +84,7 @@ export default {
           saleout: false
         }
       ],
-      newsList: [
-        {
-          name: '数据统计',
-          url: 'http://www.baidu.com'
-        },
-        {
-          name: '数据预测',
-          url: 'http://www.baidu.com'
-        },
-        {
-          name: '流量分析',
-          url: 'http://www.baidu.com',
-          hot: true
-        },
-        {
-          name: '广告发布',
-          url: 'http://www.baidu.com'
-        }
-      ],
+      newsList: [],
       productList: {
         pc: {
           title: 'PC产品',
