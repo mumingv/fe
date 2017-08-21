@@ -46,6 +46,15 @@
 
 <script>
 export default {
+  created: function() {
+    // this.$http.get('getList')
+    this.$http.post('getList', {userId: 123})
+    .then(function(data) {
+      console.log(data)
+    }, function(err) {
+      console.log(err)
+    })
+  },
   data () {
     return {
       boardList: [

@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import Layout from './components/Layout'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import IndexPage from './pages/Index'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
+Vue.use(VueResource)
+
 let router = new VueRouter({
 	mode: 'history',
 	routes: [
