@@ -15,6 +15,8 @@
     <a href="http://localhost:8080/#/form/switch">http://localhost:8080/#/form/switch</a>
     <br>
     <a href="http://localhost:8080/#/form/slider">http://localhost:8080/#/form/slider</a>
+    <br>
+    <a href="http://localhost:8080/#/form/timepicker">http://localhost:8080/#/form/timepicker</a>
 
   </div>
 </template>

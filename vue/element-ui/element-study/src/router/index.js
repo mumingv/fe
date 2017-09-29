@@ -14,6 +14,7 @@ import FormSelect from '@/components/FormSelect'
 import FormCascader from '@/components/FormCascader'
 import FormSwitch from '@/components/FormSwitch'
 import FormSlider from '@/components/FormSlider'
+import FormTimePicker from '@/components/FormTimePicker'
 
 
 Vue.use(Router)
@@ -66,6 +67,10 @@ export default new Router({
         {
           path: 'slider',
           component: FormSlider
+        },
+        {
+          path: 'timepicker',
+          component: FormTimePicker
         }
       ]
     }
