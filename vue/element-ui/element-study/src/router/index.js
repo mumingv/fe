@@ -9,6 +9,8 @@ import ButtonRadio from '@/components/ButtonRadio'
 import ButtonCheckbox from '@/components/ButtonCheckbox'
 import Form from '@/components/Form'
 import FormInput from '@/components/FormInput'
+import FormInputNumber from '@/components/FormInputNumber'
+import FormSelect from '@/components/FormSelect'
 
 
 Vue.use(Router)
@@ -41,6 +43,14 @@ export default new Router({
         {
           path: 'input',
           component: FormInput
+        },
+        {
+          path: 'inputnumber',
+          component: FormInputNumber
+        },
+        {
+          path: 'select',
+          component: FormSelect
         }
       ]
     }

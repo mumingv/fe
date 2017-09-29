@@ -6,7 +6,9 @@
     <br>
     <a href="http://localhost:8080/#/form/checkbox">http://localhost:8080/#/form/checkbox</a>
     <br>
-
+    <a href="http://localhost:8080/#/form/inputnumber">http://localhost:8080/#/form/inputnumber</a>
+    <br>
+    <a href="http://localhost:8080/#/form/select">http://localhost:8080/#/form/select</a>
   </div>
 </template>
 
