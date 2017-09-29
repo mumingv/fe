@@ -13,6 +13,8 @@
     <a href="http://localhost:8080/#/form/cascader">http://localhost:8080/#/form/cascader</a>
     <br>
     <a href="http://localhost:8080/#/form/switch">http://localhost:8080/#/form/switch</a>
+    <br>
+    <a href="http://localhost:8080/#/form/slider">http://localhost:8080/#/form/slider</a>
 
   </div>
 </template>
