@@ -9,6 +9,9 @@
     <a href="http://localhost:8080/#/form/inputnumber">http://localhost:8080/#/form/inputnumber</a>
     <br>
     <a href="http://localhost:8080/#/form/select">http://localhost:8080/#/form/select</a>
+    <br>
+    <a href="http://localhost:8080/#/form/cascader">http://localhost:8080/#/form/cascader</a>
+
   </div>
 </template>
 

@@ -11,6 +11,7 @@ import Form from '@/components/Form'
 import FormInput from '@/components/FormInput'
 import FormInputNumber from '@/components/FormInputNumber'
 import FormSelect from '@/components/FormSelect'
+import FormCascader from '@/components/FormCascader'
 
 
 Vue.use(Router)
@@ -51,6 +52,10 @@ export default new Router({
         {
           path: 'select',
           component: FormSelect
+        },
+        {
+          path: 'cascader',
+          component: FormCascader
         }
       ]
     }
