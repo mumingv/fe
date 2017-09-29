@@ -1,8 +1,12 @@
 <template>
   <div class="hello">
-    http://localhost:8080/#/button/test
+    <a href="http://localhost:8080/#/form">http://localhost:8080/#/form</a>
     <br>
-    http://localhost:8080/#/button/checkbox
+    <a href="http://localhost:8080/#/form/input">http://localhost:8080/#/form/input</a>
+    <br>
+    <a href="http://localhost:8080/#/form/checkbox">http://localhost:8080/#/form/checkbox</a>
+    <br>
+
   </div>
 </template>
 

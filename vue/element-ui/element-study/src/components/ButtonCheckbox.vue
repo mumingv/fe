@@ -28,13 +28,13 @@
       </el-checkbox-group>
     </div>
     <div class="box">
-      <h3>可选项目数量的限制（无效）</h3>
+      <h3>可选项目数量的限制</h3>
       <el-checkbox-group v-model="checkedCities1" :min="1" :max="2">
         <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
       </el-checkbox-group>
     </div>
     <div class="box">
-      <h3>按钮样式（无效）</h3>
+      <h3>按钮样式</h3>
       <div style="margin: 15px 0;"></div>
       <el-checkbox-group v-model="checkboxGroup1">
         <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
