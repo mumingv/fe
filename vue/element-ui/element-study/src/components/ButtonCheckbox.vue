@@ -27,6 +27,19 @@
         <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
       </el-checkbox-group>
     </div>
+    <div class="box">
+      <h3>可选项目数量的限制（无效）</h3>
+      <el-checkbox-group v-model="checkedCities1" :min="1" :max="2">
+        <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+      </el-checkbox-group>
+    </div>
+    <div class="box">
+      <h3>按钮样式（无效）</h3>
+      <div style="margin: 15px 0;"></div>
+      <el-checkbox-group v-model="checkboxGroup1">
+        <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
+      </el-checkbox-group>
+    </div>
   </div>
 </template>
 
@@ -39,10 +52,12 @@
         checked1: false,
         checked2: true,
         checkList: ['复选框 A', '选中且禁用'],
-        checkAll: true,
+        checkAll: false,
         checkedCities: ['上海', '北京'],
         cities: cityOptions,
-        isIndeterminate: true
+        isIndeterminate: true,
+        checkedCities1: ['上海', '北京'],
+        checkboxGroup1: ['上海'],
       };
     },
     methods: {
