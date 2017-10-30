@@ -4,6 +4,7 @@
 <head>
   <title>Rob's Rock 'n' Roll Memorabilia</title>
   <link rel="stylesheet" href="css/default.css" />
+  <script src="scripts/thumbnails.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -20,7 +21,8 @@
          sorts of great memorabilia from the golden age of rock and roll.</p>
       <p><strong>Click on an image to the left for more details.</strong></p>
     </div>
-
+    
+    <div id="thumbnailPane">
       <img src="images/itemGuitar.jpg" width="301" height="105" alt="guitar" 
            title="itemGuitar" id="itemGuitar" />
       <img src="images/itemShades.jpg" alt="sunglasses" width="301" height="88" 
@@ -29,9 +31,11 @@
            title="itemCowbell" id="itemCowbell" />
       <img src="images/itemHat.jpg" alt="hat" width="300" height="152" 
            title="itemHat" id="itemHat" />
+    </div>
 
     <div id="detailsPane">
       <img src="images/blank-detail.jpg" width="346" height="153" id="itemDetail" />
+      <div id="description"></div>
     </div>
   </div>
 </body>
