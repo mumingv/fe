@@ -8,6 +8,7 @@ function initPage() {
 }
 
 function checkUsername() {
+	// 这里的request是全局变量
 	request = createRequest();
 	if (request == null) {
 		return;
