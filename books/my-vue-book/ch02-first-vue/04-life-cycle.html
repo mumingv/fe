@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue实例与数据绑定-生命周期</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				a: 2
+			},
+			created: function () {
+				console.log('created: ' + this.a);
+				console.log(this.$el); // created阶段表示实例已经创建，但是还没有挂载
+			},
+			mounted: function () {
+				console.log('mounted: ' + this.a);
+				console.log(this.$el);
+			}
+		})
+	</script>
+</body>
+</html>
