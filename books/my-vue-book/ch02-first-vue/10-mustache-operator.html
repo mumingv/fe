@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue实例与数据绑定-简单的运算</title>
+</head>
+<body>
+	<div id="app">
+        {{ number / 10 }}
+        {{ isOk ? '确定' : '取消' }}
+        {{ text.split(',').reverse().join(',') }}
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+            data: {
+                number: 100,
+                isOk: false,
+                text: '123,456'
+            }
+		})
+	</script>
+</body>
+</html>
