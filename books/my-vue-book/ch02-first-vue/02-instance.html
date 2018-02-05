@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue实例与数据绑定-通过vue实例访问data对象中的数据</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: document.getElementById('app'),
+			data: {
+				a: 2
+			}
+		})
+		console.log(app.a);
+	</script>
+</body>
+</html>
