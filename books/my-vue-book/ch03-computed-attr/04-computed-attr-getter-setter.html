@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.2 计算属性用法 - getter 和 setter</title>
+</head>
+<body>
+	<div id="app">
+		姓名：{{ fullName }}
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				firstName: 'Jie',
+				lastName: 'Yin'
+			},
+			computed: {
+				fullName: {
+					// getter
+					get: function () {
+						return this.firstName + ' ' + this.lastName;
+					},
+					// setter
+					set: function (newValue) {
+						var names = newValue.split(' ');
+						this.firstName = names[0];
+						this.lastName = names[names.length - 1];
+					}
+				}
+			},
+			methods: {
+				handleClick: function () {
+					app.fullName = 'Zihang Yin';
+					console.log(app.firstName);
+					console.log(app.lastName);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
