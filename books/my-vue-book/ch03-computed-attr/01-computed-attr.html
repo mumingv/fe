@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.1 什么计算属性 - 复杂的表达式（简化前）</title>
+</head>
+<body>
+	<div id="app">
+		{{ text.split(',').reverse().join(',') }}
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				text: '123,456'
+			}
+		});
+	</script>
+</body>
+</html>
