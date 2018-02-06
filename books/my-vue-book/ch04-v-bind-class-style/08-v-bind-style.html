@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>4.2 绑定class的几种方式 - 在组件上使用</title>
+	<title>4.3 绑定内联样式 - 驼峰命名</title>
 	<style type="text/css">
 		.static {
 			font-weight: bold;
@@ -17,28 +17,24 @@
 </head>
 <body>
 	<div id="app">
-		<!-- 使用组件 -->
-		<my-component :class="{ 'active': isActive }"></my-component>
+		<!-- 驼峰命名：'fontSize' -->
+		<div :style="{ 'color': color, 'fontSize': fontSize + 'px' }">文本</div>
 		<button @click="handleClick">点我</button>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 	<script>
-		// 申明组件
-		Vue.component('my-component', {
-			template: '<p class="error">一些文本</p>'
-		});
-
 		var app = new Vue({
 			el: '#app',
 			data: {
-				isActive: true
+				color: 'red',
+				fontSize: 14
 			},
 			methods: {
 				handleClick: function () {
-					if (this.isActive) {
-						this.isActive = false;
+					if (this.fontSize >= 28) {
+						this.fontSize = 14;
 					} else {
-						this.isActive = true;
+						this.fontSize += 2;
 					}
 				}
 			}
