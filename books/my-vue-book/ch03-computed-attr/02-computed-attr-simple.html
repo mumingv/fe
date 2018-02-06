@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.1 什么计算属性 - 复杂的表达式（简化后）</title>
+</head>
+<body>
+	<div id="app">
+		{{ reversedText }}
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				text: '123,456'
+			},
+			computed: {
+				reversedText: function () {
+					return this.text.split(',').reverse().join(',');
+				}
+			}
+		});
+	</script>
+</body>
+</html>
