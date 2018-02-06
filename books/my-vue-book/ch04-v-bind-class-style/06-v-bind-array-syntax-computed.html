@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4.2 绑定class的几种方式 - 数组语法，使用计算属性计算类名</title>
+	<style type="text/css">
+		.static {
+			font-weight: bold;
+		}
+		.active {
+			color: red;
+		}
+		.error {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button :class="classes">测试按钮</button>
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				size: 'large',
+				disabled: true
+			},
+			methods: {
+				handleClick: function () {
+					if (this.disabled) {
+						this.disabled = false;
+					} else {
+						this.disabled = true;
+					}
+				}
+			},
+			computed: {
+				classes: function () {
+					return [
+						'btn',
+						{
+							// 注意这里字符串的写法：使用中括号
+							['btn-' + this.size]: this.size != '',
+							['btn-disabled']: this.disabled
+						}
+					];
+				}
+			}
+		});
+	</script>
+</body>
+</html>
