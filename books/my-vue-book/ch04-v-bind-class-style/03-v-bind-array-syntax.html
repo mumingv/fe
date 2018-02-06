@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4.2 绑定class的几种方式 - 数据语法</title>
+	<style type="text/css">
+		.static {
+			font-weight: bold;
+		}
+		.active {
+			color: red;
+		}
+		.error {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="static" :class="[activeClass, errorClass]">我是一段文本</div>
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				activeClass: 'active',
+				errorClass: 'error'
+			},
+			methods: {
+				handleClick: function () {
+					if (this.activeClass) {
+						this.activeClass = '';
+					} else {
+						this.activeClass = 'active';
+					}
+					if (this.errorClass) {
+						this.errorClass = '';
+					} else {
+						this.errorClass = 'error';
+					}
+					console.log(this.activeClass);
+					console.log(this.errorClass);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
