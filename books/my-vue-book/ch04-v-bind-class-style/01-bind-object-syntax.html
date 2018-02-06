@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4.2 绑定class的几种方式 - 对象语法，可以支持多个类名，并且可以和普通class共存</title>
+	<style type="text/css">
+		.static {
+			font-weight: bold;
+		}
+		.active {
+			color: red;
+		}
+		.error {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="static" :class="{ 'active': isActive, 'error': isError }">我是一段文本</div>
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				isActive: true,
+				isError: false
+			},
+			methods: {
+				handleClick: function () {
+					this.isActive = !this.isActive;
+					this.isError = !this.isError;
+					console.log(this.isActive);
+					console.log(this.isError);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
