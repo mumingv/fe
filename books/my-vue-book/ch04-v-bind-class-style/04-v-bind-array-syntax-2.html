@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>4.2 绑定class的几种方式 - 数组语法</title>
+	<title>4.2 绑定class的几种方式 - 数组语法，使用三元表达式来根据条件切换class</title>
 	<style type="text/css">
 		.static {
 			font-weight: bold;
@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div id="app">
-		<div class="static" :class="[activeClass, errorClass]">我是一段文本</div>
+		<div class="static" :class="[isActive ? activeClass : '', errorClass]">我是一段文本</div>
 		<button @click="handleClick">点我</button>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -25,20 +25,16 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
+				isActive: true,
 				activeClass: 'active',
 				errorClass: 'error'
 			},
 			methods: {
 				handleClick: function () {
-					if (this.activeClass) {
-						this.activeClass = '';
+					if (this.isActive) {
+						this.isActive = false;
 					} else {
-						this.activeClass = 'active';
-					}
-					if (this.errorClass) {
-						this.errorClass = '';
-					} else {
-						this.errorClass = 'error';
+						this.isActive = true;
 					}
 					console.log(this.activeClass);
 					console.log(this.errorClass);
