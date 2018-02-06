@@ -20,6 +20,11 @@
 				this.timer = setInterval(() => {
 					this.date = new Date();
 				}, 1000);
+			},
+			beforeDestroy: function () {
+				if (this.timer) {
+					clearInterval(this.timer); // 在Vue实例销毁之前，清除定时器
+				}
 			}
 		})
 	</script>
