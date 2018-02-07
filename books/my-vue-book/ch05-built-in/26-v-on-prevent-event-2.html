@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5.4 方法与事件 - v-on, 阻止链接打开，使用修饰符</title>
+	<!--
+	Vue支持以下修饰符：
+		.stop
+		.prevent
+		.capture
+		.self
+		.once
+	-->
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<!-- click事件名后使用修饰符.prevent -->
+		<a href="http://www.baidu.com" @click.prevent="handleClick('禁止打开')">打开链接</a>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			methods: {
+				handleClick: function (message, event) {
+					window.alert(message);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
