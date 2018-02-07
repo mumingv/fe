@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>购物车示例</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="app" v-cloak>
+		<template v-if="list.length">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>商品名称</th>
+						<th>商品单价</th>
+						<th>购买数量</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item, index) in list">
+						<td>{{ index + 1 }}</td>
+						<td>{{ item.name }}</td>
+						<td>{{ item.price }}</td>
+						<td>
+							<button>-</button>
+								{{ item.count }}
+							<button>+</button>
+						</td>
+						<td>
+							<button>移除</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>总价：￥ {{ totalPrice }}</div>
+		</template>
+		<div v-else>购物车为空</div>
+	</div>
+	<!-- 注意：这里的js文件必须放在body的最底部，否则Vue实例将无法创建，因为此时的DOM还没有被解析完成 -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
