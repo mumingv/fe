@@ -24,12 +24,17 @@
 						<td>{{ item.name }}</td>
 						<td>{{ item.price }}</td>
 						<td>
-							<button>-</button>
+							<button
+								@click="handleReduce(index)"
+								:disabled="item.count === 1"
+							>-</button>
 								{{ item.count }}
-							<button>+</button>
+							<button
+								@click="handleAdd(index)"
+							>+</button>
 						</td>
 						<td>
-							<button>移除</button>
+							<button @click="handleRemove(index)">移除</button>
 						</td>
 					</tr>
 				</tbody>

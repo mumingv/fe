@@ -34,6 +34,16 @@ var app = new Vue({
 		}
 	},
 	methods: {
-
+		handleReduce: function (index) {
+			if (this.list[index].count === 1) return;
+			this.list[index].count--;
+		},
+		handleAdd: function (index) {
+			console.log(index);
+			this.list[index].count++;
+		},
+		handleRemove: function (index) {
+			this.list.splice(index, 1);
+		}
 	}
 });
