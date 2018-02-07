@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5.3 列表渲染指令 - v-for，迭代整数</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<span v-for="n in intNumber">{{ n }} </span>
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				intNumber: 10
+			},
+			methods: {
+				handleClick: function () {}
+			}
+		});
+	</script>
+</body>
+</html>
