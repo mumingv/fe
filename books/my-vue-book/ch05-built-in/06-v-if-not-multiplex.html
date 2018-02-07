@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5.2 条件渲染指令 - v-if，Vue默认会进行元素复用，使用key改为不复用</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<template v-if="type === 'name'">
+			<label>用户名：</label>
+			<!-- 使用key属性明确指明不服用该input元素 -->
+			<input type="text" name="" placeholder="输入用户名" key="name-input">
+		</template>
+		<template v-else>
+			<label>邮箱：</label>
+			<input type="text" name="" placeholder="输入邮箱" key="mail-input">
+		</template>
+		<button @click="handleToggleClick">切换输入类型</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				type: 'name'
+			},
+			methods: {
+				handleToggleClick: function () {
+					this.type = this.type == 'name' ? 'mail' : 'name';
+					console.log(this.type);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
