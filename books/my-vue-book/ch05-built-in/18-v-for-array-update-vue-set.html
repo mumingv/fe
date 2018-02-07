@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5.3 列表渲染指令 - v-for，直接设置数组索引不生效的替代方案</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<template v-for="book in books">
+				<li>书名：{{ book.name }}</li>
+				<li>作者：{{ book.author }}</li>
+			</template>
+		</ul>
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				books: [
+					{
+						name: '《Vue.js 实战》',
+						author: '梁灏'
+					},
+					{
+						name: '《JavaScript 语言精粹》',
+						author: 'Douglas Crockford'
+					},
+					{
+						name: '《JavaScript 高级程序设计》',
+						author: 'Nicholas C.Zakas'
+					}
+				]
+			},
+			methods: {
+				handleClick: function () {
+					// 1. 通过索引直接设置数组项，不会触发视图更新
+					// this.books[3] = {
+					// 	name: '《CSS揭秘》',
+					// 	author: '[希] Lea Verou'
+					// };
+					// console.log(this.books);
+
+					// 替代方案（注意：这里的Vue.set不能写成this.set，因为set函数只能通过Vue类进行调用，不能通过实例this或app进行调用）
+					Vue.set(this.books, 3, {
+						name: '《CSS揭秘》',
+					 	author: '[希] Lea Verou'
+					});
+					console.log(this.books);
+				}
+			}
+		});
+
+		// 或者在外部调用set函数也可以
+		// Vue.set(app.books, 3, {
+		// 	name: '《CSS揭秘》',
+		//  	author: '[希] Lea Verou'
+		// });
+		// console.log(app.books);
+	</script>
+</body>
+</html>
