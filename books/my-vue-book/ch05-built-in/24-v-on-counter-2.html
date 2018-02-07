@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5.4 方法与事件 - v-on实现计数器</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		点击次数：{{ counter }}
+		<!-- 在@click的表达式中使用函数（带不带参数都可以） -->
+		<button @click="handleAdd">+1(函数不带括号，不能点击)</button>
+		<button @click="handleAdd()">+1(函数带括号)</button>
+		<button @click="handleAdd(10)">+10</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				counter: 0
+			},
+			methods: {
+				// 对于有参数的方法，几种调用方法的区别：
+				// 1. handleAdd: count接收一个原生的事件对象event；
+				// 2. handleAdd(): count接收的参数为undefined；
+				// 3. handleAdd(10): count接收的参数为10；
+				handleAdd: function (count) {
+					console.log(count);
+					count = count || 1;
+					this.counter += count;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
