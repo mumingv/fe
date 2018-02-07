@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5.3 列表渲染指令 - v-for，数组过滤</title>
+	<!-- 
+		数组操作（改变原始数组）：
+			push
+			pop
+			shift
+			unshift
+			splice
+			sort
+			reverse
+		数组操作（不改变原始数组）：
+			filter
+			concat
+			slice
+	-->
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<template v-for="book in books">
+				<li>书名：{{ book.name }}</li>
+				<li>作者：{{ book.author }}</li>
+			</template>
+		</ul>
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				books: [
+					{
+						name: '《Vue.js 实战》',
+						author: '梁灏'
+					},
+					{
+						name: '《JavaScript 语言精粹》',
+						author: 'Douglas Crockford'
+					},
+					{
+						name: '《JavaScript 高级程序设计》',
+						author: 'Nicholas C.Zakas'
+					}
+				]
+			},
+			methods: {
+				handleClick: function () {
+					// filter的参数表示数组中的元素，这里表示某一本书的对象
+					this.books = this.books.filter(function (item) {
+						// 注意JS中正则表达式的写法
+						return item.name.match(/JavaScript/);
+					});
+				}
+			}
+		});
+	</script>
+</body>
+</html>
