@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>5.3 列表渲染指令 - v-for，直接设置数组索引不生效的替代方案</title>
+	<title>5.3 列表渲染指令 - v-for，一些场景的数组数据变动不会触发视图更新</title>
 	<style type="text/css"></style>
 </head>
 <body>
@@ -44,22 +44,24 @@
 					// };
 					// console.log(this.books);
 
-					// 替代方案（注意：这里的Vue.set不能写成this.set，因为set函数只能通过Vue类进行调用，不能通过实例this或app进行调用）
-					Vue.set(this.books, 3, {
+					// 替代方案（在webpack中使用组件化的方式时，默认是没有导入Vue的；这里可以使用this.$set）
+					this.$set(this.books, 3, {
 						name: '《CSS揭秘》',
 					 	author: '[希] Lea Verou'
 					});
 					console.log(this.books);
+					console.log(this);
 				}
 			}
 		});
 
-		// 或者在外部调用Vue.set函数也可以
-		// Vue.set(app.books, 3, {
+		// 或者在外部调用app.$set函数也可以
+		// app.$set(app.books, 3, {
 		// 	name: '《CSS揭秘》',
 		//  	author: '[希] Lea Verou'
 		// });
 		// console.log(app.books);
+		// console.log(app);
 	</script>
 </body>
 </html>
