@@ -11,6 +11,7 @@
 |ch03-computed-attr		|第3章 计算属性					|
 |ch04-v-bind-class-style|第4章 v-bind及class与style绑定	|
 |ch05-built-in			|第5章 内置指令   					|
+|ch06-v-model			|第6章 表单与v-model   			|
 
 
 |项目					|内容										|
