@@ -7,7 +7,8 @@
 </head>
 <body>
 	<div id="app">
-		<!-- 使用v-model后，表单控件显示的值只依赖所绑定的数据，不再关心value属性 -->
+		<!-- 1. 使用v-model时，表单控件显示的值只依赖所绑定的数据，不再关心value属性 -->
+		<!-- 2. 使用v-model时，对于中文输入法，只有输入完成中文汉字之后才会触发数据更新，输入拼音的时候不会更新 -->
 		<textarea v-model="text" placeholder="输入..."></textarea>
 		<p>输入的内容是：</p>
 		<p style="white-space: pre">{{ text }}</p>
