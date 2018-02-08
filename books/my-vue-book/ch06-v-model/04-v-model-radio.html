@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6.1 基本用法 - 单元按钮</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<!-- 单选按钮使用checked属性控制即可，不需要使用v-model -->
+		<input type="radio" name="" :checked="picked">
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				picked: true
+			},
+			methods: {
+				handleClick: function () {
+					this.picked = this.picked ? false : true;
+					console.log(this.picked);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
