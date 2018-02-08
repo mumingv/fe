@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6.1 基本用法 - v-model, textarea，中文输入拼音实时更新</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<!-- 1. 使用v-model时，表单控件显示的值只依赖所绑定的数据，不再关心value属性 -->
+		<!-- 2. 使用@input时，对于中文输入法，输入拼音的时候也会触发数据更新 -->
+		<textarea @input="handleInput" placeholder="输入..."></textarea>
+		<p>输入的内容是：</p>
+		<p style="white-space: pre">{{ message }}</p>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: ''
+			},
+			methods: {
+				handleInput: function (e) {
+					// 根据事件获取对象的属性
+					console.log(e);
+					this.message = e.target.value;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
