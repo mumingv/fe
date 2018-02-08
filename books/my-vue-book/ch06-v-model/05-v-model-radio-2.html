@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6.1 基本用法 - 单选按钮</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<!-- 单选按钮组合实现互斥效果，需要使用v-model和配合value属性来使用 -->
+		<!-- 1. v-model的值和value的值一致就会变成选中状态，不一致就变成不选中；
+			 2. 选中某个按钮后，该按钮的value值会赋值给v-model的变量picked；
+		-->
+		<input type="radio" name="" v-model="picked" value="html" id="html">
+		<label for="html">HTML</label>
+		<br>
+		<input type="radio" name="" v-model="picked" value="js" id="js">
+		<label for="js">JavaScript</label>
+		<br>
+		<input type="radio" name="" v-model="picked" value="css" id="css">
+		<label for="css">CSS</label>
+		<br>
+		
+		<p>选择的项是：{{ picked }}</p>
+
+		<button @click="handleClick">点我</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				picked: 'js'
+			},
+			methods: {
+				handleClick: function () {
+					var options = ['html', 'js', 'css'];
+					index =  Math.floor(Math.random() * 10) % 3;
+					this.picked = options[index];
+					console.log(this.picked);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
