@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div id="app">
+		<!-- 使用v-model后，表单控件显示的值只依赖所绑定的数据，不再关心value属性 -->
 		<textarea v-model="text" placeholder="输入..."></textarea>
 		<p>输入的内容是：</p>
 		<p style="white-space: pre">{{ text }}</p>
