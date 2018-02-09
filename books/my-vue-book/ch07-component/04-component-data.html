@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.1 组件与复用 - 组件用法 - data选项</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<div id="app">
+		<my-component></my-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('my-component', {
+			template: '<div>{{ message }}</div>',
+			// 组件中的data选项和实例中的data选项不太一样：
+			// 1. 实例中的data选项是一个对象；
+			// 2. 组件中的data选项是一个函数，函数返回一个对象，对象中包含各数据；
+			data: function () {
+				return {
+					message: '组件内容'
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
