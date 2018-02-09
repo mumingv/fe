@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>7.1 组件与复用 - 组件用法 - 外部对象</title>
+	<title>7.1 组件与复用 - 组件用法 - 非外部对象</title>
 	<style type="text/css"></style>
 </head>
 <body>
@@ -13,15 +13,13 @@
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 	<script>
-		var data = {
-			counter: 0
-		};
-
-		// 三个组件都引用了同一个外部数据对象
+		// 三个组件分别使用各自独立的数据对象
 		Vue.component('my-component', {
 			template: '<button @click="counter++">{{ counter }}</button>',
 			data: function () {
-				return data;
+				return {
+					counter: 0
+				};
 			}
 		});
 
