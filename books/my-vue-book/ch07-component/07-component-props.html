@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.2 使用props传递数据 - 组件间通信</title>
+	<style type="text/css"></style>
+	<!--
+		组件间通信：父组件 -> 子组件，使用props来实现。
+		1. 子组件中使用选项props申明需要从父组件接收的数据；
+		2. props的取值有两种：字符串数据 或者 对象；
+	-->
+</head>
+<body>
+	<!-- 在父组件当中 -->
+	<div id="app">
+		<!-- 调用子组件 -->
+		<my-component message="来自父组件的数据"></my-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 子组件
+		Vue.component('my-component', {
+			// props是来自父组件的数据
+			props: ['message'],
+			template: '<div>{{ message }}</div>',
+			// data是来自自身组件的数据
+			data: function () {
+				return {
+					counter: 0
+				};
+			}
+		});
+
+		// 父组件
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
