@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.2 使用props传递数据 - 单向数据流 - 子组件保存父组件传递的值</title>
+	<style type="text/css"></style>
+	<!--
+		单向数据流：只能父组件传递数据给子组件，反之不行。
+	-->
+</head>
+<body>
+	<div id="app">
+		<my-component :init-count="1"></my-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('my-component', {
+			props: ['initCount'],
+			template: '<div>{{ count }}</div>',
+			data: function () {
+				return {
+					// 这里的this表示组件自身
+					count: this.initCount,
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
