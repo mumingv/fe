@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.3 组件通信 - 非父子组件通信 - this.$parent</title>
+	<style type="text/css"></style>
+	<!--
+		子组件通过this.$parent直接修改父组件的内容。
+	-->
+</head>
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+		<component-a></component-a>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('component-a', {
+			template: '<button @click="handleEvent">通过父链直接修改数据</button>',
+			methods: {
+				handleEvent: function () {
+					this.$parent.message = '来自组件component-a的内容';
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: '',
+			}
+		});
+	</script>
+</body>
+</html>
