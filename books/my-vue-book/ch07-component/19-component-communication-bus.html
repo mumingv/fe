@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.3 组件通信 - 非父子组件通信</title>
+	<style type="text/css"></style>
+	<!--
+		使用中央事件总线bus实现父子、兄弟以及跨级组件通信。
+	-->
+</head>
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+		<component-a></component-a>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 中央事件总线，作为中介
+		var bus = new Vue();
+
+		Vue.component('component-a', {
+			template: '<button @click="handleEvent">传递事件</button>',
+			methods: {
+				handleEvent: function () {
+					bus.$emit('on-message', '来自组件component-a的内容');
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: '',
+			},
+			mounted: function () {
+				var _this = this;
+				// 在实例初始化时，监听来自bus实例的事件
+				bus.$on('on-message', function (msg) {
+					_this.message = msg;
+				});
+			}
+		});
+	</script>
+</body>
+</html>
