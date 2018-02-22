@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>7.4 使用slot分发内容 - 具名slot</title>
+	<title>7.4 使用slot分发内容 - 访问slot</title>
 	<style type="text/css"></style>
 	<!--
 		构成Vue组件的三个API来源：
@@ -34,7 +34,15 @@
 				<div class="footer">\
 					<slot name="footer"></slot>\
 				</div>\
-			</div>'
+			</div>',
+			mounted: function () {
+				var header = this.$slots.header;
+				var main = this.$slots.default;
+				var footer = this.$slots.footer;
+				console.log(footer);
+				console.log(footer[0].elm.innerHTML);
+				console.log(footer[0].elm.innerText);
+			}
 		});
 
 		var app = new Vue({
