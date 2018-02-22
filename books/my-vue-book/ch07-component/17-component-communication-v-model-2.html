@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.3 组件通信 - 自定义事件 - 子组件向父组件传递数据 - v-model指令的等价写法</title>
+	<style type="text/css"></style>
+	<!--
+		在自定义事件上使用v-model指令，等价于使用自定义事件实现。
+	-->
+</head>
+<body>
+	<div id="app">
+		<p>总数：{{ total }}</p>
+		<!-- 这里的v-model绑定的变量total对应子组件提交事件中携带的数据this.counter -->
+		<my-component @input="handleGetTotal"></my-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('my-component', {
+			template: '<button @click="handleClick">+1</button>',
+			data: function () {
+				return {
+					counter: 0
+				}
+			},
+			methods: {
+				handleClick: function () {
+					this.counter++;
+					// 要在父组件使用v-model指令，这里需要指定事件名称为input
+					this.$emit('input', this.counter);
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				total: 0,
+			},
+			methods: {
+				handleGetTotal: function (total) {
+					this.total = total;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
