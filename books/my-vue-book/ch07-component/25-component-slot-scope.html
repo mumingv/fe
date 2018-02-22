@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.4 使用slot分发内容 - 作用域slot</title>
+	<style type="text/css"></style>
+	<!--
+		作用域slot：scope="props"中的props是一个临时变量。
+	-->
+</head>
+<body>
+	<div id="app">
+		<child-component>
+			<template scope="props">
+				<p>来自父组件的内容</p>
+				<p>{{ props.msg }}</p>
+			</template>
+		</child-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('child-component', {
+			template: '\
+			<div class="container">\
+				<slot msg="来自子组件的内容"></slot>\
+			</div>'
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
