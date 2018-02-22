@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.4 使用slot分发内容 - 具名slot</title>
+	<style type="text/css"></style>
+	<!--
+		构成Vue组件的三个API来源：
+		1、props传递数据；
+		2、events触发事件；
+		3、slot分发内容；
+	-->
+</head>
+<body>
+	<div id="app">
+		<child-component>
+			<h2 slot="header">标题</h2>
+			<p>正文的内容</p>
+			<p>更多正文的内容</p>
+			<div slot="footer">底部信息</div>
+		</child-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('child-component', {
+			template: '\
+			<div class="container">\
+				<div class="header">\
+					<slot name="header"></slot>\
+				</div>\
+				<div class="main">\
+					<slot></slot>\
+				</div>\
+				<div class="footer">\
+					<slot name="footer"></slot>\
+				</slot>\
+			</div>'
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
