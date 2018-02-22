@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.4 使用slot分发内容 - 作用域slot - 列表组件</title>
+	<style type="text/css"></style>
+	<!--
+		作用域slot：scope="props"中的props是一个临时变量。
+	-->
+</head>
+<body>
+	<div id="app">
+		<my-list :books="books">
+			<template slot="book" scope="props">
+				<li>{{ props.bookName }}</li>
+			</template>
+		</my-list>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('my-list', {
+			props: {
+				books: {
+					type: Array,
+					default: function () {
+						return [];
+					}
+				}
+			},
+			template: '\
+			<ul>\
+				<slot name="book" v-for="book in books" :book-name="book.name"></slot>\
+			</ul>'
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				books: [
+					{ name: '《Vue.js 实战》'},
+					{ name: '《JavaScript 语言精粹》'},
+					{ name: '《JavaScript 高级程序设计》'}
+				]
+			}
+		});
+	</script>
+</body>
+</html>
