@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7.2 使用props传递数据 - 数据验证</title>
+	<style type="text/css"></style>
+	<!--
+		数据验证：props使用对象写法。
+	-->
+</head>
+<body>
+	<div id="app">
+		<my-component init-count="2abc"></my-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('my-component', {
+			props: {
+				// 必须是字符串或数字类型
+				initCount: {String, Number},
+			},
+			template: '<div>{{ count }}</div>',
+			data: function () {
+				return {
+					// 这里的this表示组件自身
+					count: this.initCount,
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
