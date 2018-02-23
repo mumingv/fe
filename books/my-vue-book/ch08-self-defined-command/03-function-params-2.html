@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>8.1 自定义指令 - 钩子函数参数的用法 - 自定义指令使用JavaScript对象字面量</title>
+	<style type="text/css"></style>
+	<!--
+		
+	-->
+</head>
+<body>
+	<div id="app">
+		<div v-test="{msg: 'hello', name: 'Aresn'}"></div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 注册全局指令
+		Vue.directive('test', {
+			bind: function (el, binding, vnode) {
+				console.log(binding.value.msg);
+				console.log(binding.value.name);
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'some text'
+			}
+		});
+	</script>
+</body>
+</html>
