@@ -13,6 +13,7 @@
 |ch05-built-in			|第5章 内置指令   					|
 |ch06-v-model			|第6章 表单与v-model   			|
 |ch07-component			|第7章 组件详解   					|
+|ch08-self-defined-command|第8章 自定义指令                 |
 
 
 ### 项目列表
