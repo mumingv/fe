@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>8.1 自定义指令 - 基本用法</title>
+	<style type="text/css"></style>
+	<!--
+		
+	-->
+</head>
+<body>
+	<div id="app">
+		<input type="text" name="" v-focus>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 注册全局指令
+		Vue.directive('focus', {
+			inserted: function (el) {
+				// 聚焦元素
+				el.focus();
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
