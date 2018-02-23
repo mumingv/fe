@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9.2 什么是Render函数 - template写法</title>
+	<style type="text/css"></style>
+	<!--
+		
+	-->
+</head>
+<body>
+	<div id="app">
+		<anchor :level="2" title="特性">特性</anchor>
+		<!-- 注意这里的写法 -->
+		<script type="text/x-template" id="anchor">
+			<div>
+				<h1 v-if="level === 1">
+					<a :href="'#' + title">
+						<slot></slot>
+					</a>
+				</h1>
+				<h2 v-if="level === 2">
+					<a :href="'#' + title">
+						<slot></slot>
+					</a>
+				</h2>
+				<h3 v-if="level === 3">
+					<a :href="'#' + title">
+						<slot></slot>
+					</a>
+				</h3>
+				<h4 v-if="level === 4">
+					<a :href="'#' + title">
+						<slot></slot>
+					</a>
+				</h4>
+				<h5 v-if="level === 5">
+					<a :href="'#' + title">
+						<slot></slot>
+					</a>
+				</h5>
+				<h6 v-if="level === 6">
+					<a :href="'#' + title">
+						<slot></slot>
+					</a>
+				</h6>
+			</div>
+		</script>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 注册全局组件
+		Vue.component('anchor', {
+			// 注意这里模板的写法
+			template: '#anchor',
+			props: {
+				level: {
+					type: Number,
+					required: true
+				},
+				title: {
+					type: String,
+					default: ''
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
