@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9.3 createElement用法 - 约束 - 错误示例</title>
+	<style type="text/css"></style>
+	<!--
+		错误示例：期望渲染出两个Child组件，但实际上只能渲染出一个。
+	-->
+</head>
+<body>
+	<div id="app">
+		<ele></ele>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 局部声明组件
+		var Child = {
+			render: function(createElement) {
+				return createElement('p', 'text');
+			}
+		}
+		// 注册全局组件
+		Vue.component('ele', {
+			render: function (createElement) {
+				// 创建一个子节点，使用组件Child
+				var ChildNode = createElement(Child);
+				return createElement('div', [
+					ChildNode,
+					ChildNode
+				]);
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
