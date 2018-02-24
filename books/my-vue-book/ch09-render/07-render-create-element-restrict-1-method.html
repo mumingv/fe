@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9.3 createElement用法 - 约束 - 错误示例1 - 解决方案</title>
+	<style type="text/css"></style>
+	<!--
+		错误示例：重复使用组件。
+		实际效果：期望渲染出两个Child组件，但实际上只能渲染出一个。
+		解决方案：通过一个循环和工厂函数就可以渲染5个重复的子组件Child。
+	-->
+</head>
+<body>
+	<div id="app">
+		<ele></ele>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 局部声明组件
+		var Child = {
+			render: function(createElement) {
+				return createElement('p', 'text');
+			}
+		}
+		// 注册全局组件
+		Vue.component('ele', {
+			render: function (createElement) {
+				return createElement('div', [
+					// Array.apply(null, { length: 5}) 相当于 Array(undefined, undefined, undefined, undefined, undefined)
+					// 第二个参数 { length: 5 } 可以看做一个类数组对象
+					// 数组的map方法返回一个新数组，新数组元素的值为原素组元素的值应用函数后所得的新值
+					Array.apply(null, {
+						length: 5
+					}).map(function() {
+						return createElement(Child);
+					})
+				]);
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
