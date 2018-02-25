@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>9.3 createElement用法 - 使用JavaScript代替模板功能 - if/else</title>
+	<title>9.3 createElement用法 - 使用JavaScript代替模板功能 - for</title>
 	<style type="text/css"></style>
 	<!--
 		
@@ -10,32 +10,34 @@
 </head>
 <body>
 	<div id="app">
-		<ele :show="show"></ele>
-		<button @click="show = !show">切换show</button>
+		<ele :list="list"></ele>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 	<script>
 		// 注册全局组件
 		Vue.component('ele', {
 			render: function (createElement) {
-				if (this.show) {
-					return createElement('p', 'show的值为true');
-				} else {
-					return createElement('p', 'show的值为false');
+				var nodes = [];
+				for (var i = 0; i < this.list.length; i++) {
+					nodes.push(createElement('p', this.list[i]));
 				}
+				return createElement('div', nodes);
 			},
 			props: {
-				show: {
-					type: Boolean,
-					default: false
+				list: {
+					type: Array
 				}
 			}
-		})
-		
+		});
+
 		var app = new Vue({
 			el: '#app',
 			data: {
-				show: false
+				list: [
+					'《Vue.js 实战》',
+					'《JavaScript 高级程序设计》',
+					'《JavaScript 语言精粹》'
+				]
 			}
 		});
 	</script>
