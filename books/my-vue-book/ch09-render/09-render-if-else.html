@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9.3 createElement用法 - 使用JavaScript代替模板功能</title>
+	<style type="text/css"></style>
+	<!--
+		
+	-->
+</head>
+<body>
+	<div id="app">
+		<ele :show="show"></ele>
+		<button @click="show = !show">切换show</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 注册全局组件
+		Vue.component('ele', {
+			render: function (createElement) {
+				if (this.show) {
+					return createElement('p', 'show的值为true');
+				} else {
+					return createElement('p', 'show的值为false');
+				}
+			},
+			props: {
+				show: {
+					type: Boolean,
+					default: false
+				}
+			}
+		})
+		var app = new Vue({
+			el: '#app',
+			data: {
+				show: false
+			}
+		});
+	</script>
+</body>
+</html>
