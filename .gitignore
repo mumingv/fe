@@ -4,3 +4,4 @@ javascript.tags
 .DS_Store
 .gitignore
 learn-javascript
+node_modules
