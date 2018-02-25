@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9.3 createElement用法 - 使用JavaScript代替模板功能 - v-model</title>
+	<style type="text/css"></style>
+	<!--
+		说明：v-model实际上就是 prop: value 和 event: input 组合使用的一个语法糖。
+	-->
+</head>
+<body>
+	<div id="app">
+		<ele></ele>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		Vue.component('ele', {
+			render: function (createElement) {
+				var _this = this;
+				return createElement('div', [
+					createElement('input', {
+						domProps: {
+							value: this.value
+						},
+						on: {
+							input: function (event) {
+								_this.value = event.target.value;
+							}
+						}
+					}),
+					createElement('p', 'value: ' + this.value)
+				]);
+			},
+			data: function () {
+				return {
+					value: ''
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				value: '123'
+			}
+		});
+	</script>
+</body>
+</html>
