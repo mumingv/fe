@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9.3 createElement用法 - 约束 - 错误示例2 - 解决方案</title>
+	<style type="text/css"></style>
+	<!--
+		错误示例：重复使用组件。
+		实际效果：期望渲染出两个Child组件，但实际上只能渲染出一个。
+		解决方案：在Render函数里创建了一个cloneVNode的工厂函数，通过递归将slot所有子节点都克隆了一份，并对VNode的关键属性也进行了复制。
+	-->
+</head>
+<body>
+	<div id="app">
+		<ele>
+			<div>
+				<Child></Child>
+			</div>
+		</ele>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script>
+		// 注册全局组件
+		Vue.component('Child', {
+			render: function (createElement) {
+				return createElement('p', 'text2');
+			}
+		});
+		Vue.component('ele', {
+			render: function (createElement) {
+				// 克隆slot节点的方法
+				function cloneVNode(vnode) {
+					// 递归遍历所有子节点，并克隆
+					const clonedChildren = vnode.children &&
+					vnode.children.map(function(vnode) {
+						return cloneVNode(vnode);
+					});
+					const cloned = createElement(
+						vnode.tag,
+						vnode.data,
+						clonedChildren
+					);
+					cloned.text = vnode.text;
+					cloned.isComment = vnode.isComment;
+					cloned.componentOptions = vnode.componentOptions;
+					cloned.elm = vnode.elm;
+					cloned.context = vnode.context;
+					cloned.ns = vnode.ns;
+					cloned.isStatic = vnode.isStatic;
+					cloned.key = vnode.key;
+				}
+				const vNodes = this.$slots.default;
+				const clonedVnodes = vNodes.map(function (vnode) {
+					return cloneVNode(vnode);
+				});
+
+				return createElement('div', [
+					vNodes,
+					clonedVnodes
+				]);
+			}
+		});
+
+		var app = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
