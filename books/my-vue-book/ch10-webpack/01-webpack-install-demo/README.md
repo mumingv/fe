@@ -22,5 +22,6 @@ touch webpack.config.js
 ```
 npm install css-loader --save-dev
 npm install style-loader --save-dev
+npm install extract-text-webpack-plugin --save-dev
 ```
 
