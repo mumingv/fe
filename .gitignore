@@ -5,3 +5,4 @@ javascript.tags
 .gitignore
 learn-javascript
 node_modules
+books/my-vue-book/ch10-webpack/01-webpack-install-demo/package-lock.json
