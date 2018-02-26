@@ -10,6 +10,8 @@ import App from './app.vue';
 
 // 创建Vue根实例
 new Vue({
+	// 将Vue实例挂载到index.html中的id为app的html节点上
 	el: '#app',
+	// 使用导入的app.vue组件渲染页面
 	render: h => h(App)
 });
