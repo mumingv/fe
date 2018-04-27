@@ -30,6 +30,21 @@ html, body {
 .daily-menu-item.on {
 	border-right: 2px solid #3399ff;
 }
+/* 去除列表的默认样式 */
+.daily-menu ul {
+	list-style: none;
+}
+.daily-menu ul li a {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	padding: 5px 0;
+	margin: 5px 0;
+	cursor: pointer;
+}
+.daily-menu ul li a:hover, .daily-menu ul li a.on {
+	color: #3399ff;
+}
 .daily-list {
 	width: 300px;
 	position: fixed;
@@ -43,6 +58,7 @@ html, body {
 	background: #e3e8ee;
 }
 .daily-article {
+	/* 上面menu和list都是固定定位，所以这里需要设置左边的margin */
 	margin-left: 450px;
 	padding: 20px;
 }
