@@ -7,6 +7,9 @@
 import Vue from 'vue';
 // 导入app.vue组件
 import App from './app.vue';
+// 导入样式
+import './style.css';
+
 
 // 创建Vue根实例
 new Vue({
@@ -14,4 +17,10 @@ new Vue({
 	el: '#app',
 	// 使用导入的app.vue组件渲染页面
 	render: h => h(App)
+	// 或者写成如下形式：
+	/*
+	render: h => {
+		return h(App)
+	}
+	*/
 });
