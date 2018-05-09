@@ -18,7 +18,9 @@
 			</ul>
 		</div>
 		<!-- 第二列：文章列表 -->
-		<div class="daily-list">
+		<!-- 注意：ref 被用来给元素或子组件注册引用信息。 -->
+		<!-- 参考：https://cn.vuejs.org/v2/api/#ref -->
+		<div class="daily-list" ref="list" @scroll="handleScroll">
 			<template v-if="type === 'recommend'">
 				<div v-for="list in recommendList">
 					<div class="daily-date">{{ formatDay(list.date) }}</div>
@@ -59,8 +61,8 @@
 				recommendList: [],
 				// 主题日报中的文章列表
 				list: [],
-				// 日报毫秒级时间戳
-				dailyTime: $.getTodayTime(),
+				// 接口（http://127.0.0.1:8010/news/before/20180508）返回的date值
+				date: $.prevDay($.getTodayTime() + 86400000),
 				isLoading: false,
 				themeId: 0
 			}
@@ -90,15 +92,15 @@
 				console.log('func: handleToRecommend');
 				this.type = 'recommend';
 				this.recommendList = [];
-				this.dailyTime = $.getTodayTime();
+				// this.date = $.prevDay($.getTodayTime() + 86400000);
 				this.getRecommendList();
 			},
 			getRecommendList() {
 				this.isLoading = true;
-				const prevDay = $.prevDay(this.dailyTime + 86400000);
 				// 获取每日推荐的数据
 				// http://127.0.0.1:8010/news/before/20180510
-				$.ajax.get('news/before/' + prevDay).then(res => {
+				$.ajax.get('news/before/' + this.date).then(res => {
+					this.date = res.date;
 					this.recommendList.push(res);
 					this.isLoading = false;
 				});
@@ -110,6 +112,21 @@
 				if (month.substr(0, 1) === '0') month = month.substr(1, 1);
 				if (day.substr(0, 1) === '0') day = day.substr(1, 1);
 				return `${month} 月 ${day} 日`;
+			},
+			// 处理中栏滚动事件
+			handleScroll() {
+				// 获取相应的dom节点
+				const $list = this.$refs.list;
+				if (this.type === 'daily' || this.isLoading) return;
+				// 1. Element.scrollTop属性：表示内容垂直滚动的像素数
+				//    参考：https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
+				// 2. Element.scrollHeight属性：表示元素内容高度的度量
+				//    参考：https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
+				// 3. Element.clientHeight属性：表示元素的可视化高度
+				//    参考：https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight
+				if ($list.scrollTop + $list.clientHeight >= $list.scrollHeight) {
+					this.getRecommendList();
+				}
 			}
 		},
 		mounted () {
