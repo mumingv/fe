@@ -1,3 +1,18 @@
+## 使用方法
+
+### 启动代理
+
+```
+$ node proxy.js
+```
+
+### 启动调试模式
+
+```
+$ npm run dev
+```
+
+
 ## 操作步骤
 
 ### 10.2.1 安装webpack与webpack-dev-server
