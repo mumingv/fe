@@ -28,18 +28,23 @@
 						v-for="item in list.stories"
 						:data="item"
 						:key="item.id"
+						@click.native="handleClick(item.id)"
 					></Item>
 				</div>
 			</template>
 			<template v-if="type === 'daily'">
+				<!-- 原始事件使用.native修饰符，否则会被认为是Item组件的自定义事件click -->
 				<Item
 					v-for="item in list"
 					:data="item"
 					:key="item.id"
+					@click.native="handleClick(item.id)"
 				></Item>
 			</template>
 		</div>
-		<!-- <daily-article></daily-article> -->
+		<!-- 第三列：文章详情 -->
+		<daily-article :id="articleId"></daily-article>
+		
 	</div>
 </template>
 <script>
@@ -47,10 +52,13 @@
 	import $ from './libs/util';
 	// 文章列表中的单篇文章，这里的item.vue中的.vue不能省略
 	import Item from './components/item.vue';
+	// 文章详情页组件
+	import dailyArticle from './components/daily-article.vue';
 
 	export default {
 		components: {
-			Item
+			Item,
+			dailyArticle
 		},
 		data () {
 			return {
@@ -64,7 +72,9 @@
 				// 接口（http://127.0.0.1:8010/news/before/20180508）返回的date值
 				date: $.prevDay($.getTodayTime() + 86400000),
 				isLoading: false,
-				themeId: 0
+				themeId: 0,
+				// 文章ID
+				articleId: 0
 			}
 		},
 		methods: {
@@ -127,6 +137,10 @@
 				if ($list.scrollTop + $list.clientHeight >= $list.scrollHeight) {
 					this.getRecommendList();
 				}
+			},
+			// 点击文章标题，显示文章内容
+			handleClick(id) {
+				this.articleId = id;
 			}
 		},
 		mounted () {
