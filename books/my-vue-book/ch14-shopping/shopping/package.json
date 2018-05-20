@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --config webpack.config.js",
+    "dev": "webpack-dev-server --port 8080 --open --history-api-fallback --config webpack.config.js",
     "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
   },
   "author": "",
@@ -32,6 +32,8 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   }
 }
