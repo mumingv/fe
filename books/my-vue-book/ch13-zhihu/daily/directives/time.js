@@ -78,7 +78,7 @@ export default {
 		// 参考：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setInterval
 		el.__timeout__ = setInterval(function () {
 			el.innerHTML = Time.getFormatTime(binding.value * 1000);
-		}, 600000);
+		}, 60000);
 	},
 	unbind: function (el) {
 		clearInterval(el.__timeout__);
