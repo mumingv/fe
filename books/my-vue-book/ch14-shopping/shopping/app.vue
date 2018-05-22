@@ -1,30 +1,28 @@
 <template>
-	<!-- <div>Hello {{ name }}</div> -->
-	<div>
-		<v-title title="Vue组件化"></v-title>
-		<v-button @click="handleClick">点击按钮</v-button>
-		<p>
-			<img src="./images/image.png" style="width: 200px;">
-		</p>
+	<div class="total">
+		<product :info="info"></product>
 	</div>
 </template>
 <script>
 	// 导入组件
-	import vTitle from './title.vue';
-	import vButton from './button.vue';
+	import Product from './components/product.vue';
 
 	export default {
-		// 等同于：
-		// data: function () {}
-		// data () {
-		// 	return {
-		// 		name: 'Vue.js'
-		// 	}
-		// }
-
+		data () {
+			return {
+				info: {
+					id: 1,
+					name: 'AirPods',
+					brand: 'Apple',
+					image: 'http://ordfm6aah.bkt.clouddn.com/shop/1.jpeg',
+					sales: 10000,
+					cost: 1288,
+					color: '白色'
+				}
+			}
+		},
 		components: {
-			vTitle,
-			vButton
+			Product
 		},
 		methods: {
 			handleClick (e) {
@@ -34,8 +32,8 @@
 	}
 </script>
 <style scoped>
-	div {
-		color: #f60;
-		font-size: 24px;
+	.total {
+		/*width: 600px;*/
+		/*height: 300px;*/
 	}
 </style>
